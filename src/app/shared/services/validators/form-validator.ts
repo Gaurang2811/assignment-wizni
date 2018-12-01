@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormGroup, FormArray } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +15,13 @@ export class FormValidatorService {
   }
 
   // mark all controls dirty for a form group (utility methods)
-  markControlsTouched(group: any) {
-    for (const i in group.controls) {
-      group.controls[i].markAsTouched();
-      if (group.controls[i] instanceof FormGroup || group.controls[i] instanceof FormArray) {
-        this.markControlsTouched(group.controls[i]);
-      }
-    }
-  }
+  // markControlsTouched(group: any) {
+  //   for (const i in group.controls) {
+  //     group.controls[i].markAsTouched();
+  //     if (group.controls[i] instanceof FormGroup || group.controls[i] instanceof FormArray) {
+  //       this.markControlsTouched(group.controls[i]);
+  //     }
+  //   }
+  // }
 
 }

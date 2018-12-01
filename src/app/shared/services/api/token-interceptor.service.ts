@@ -9,7 +9,6 @@ import {
   HttpResponse,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -19,7 +18,6 @@ import { LoaderService } from '../../components/loader/loader.service';
 export class TokenInterceptor implements HttpInterceptor {
 
   constructor(
-    private router: Router,
     private loaderService: LoaderService,
     private notifyService: ToastNotificationService,
     ) {}
