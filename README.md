@@ -9,6 +9,10 @@ In project root run `json-server --watch dummy.json` or
 `json-server --watch ~/path-to-dummy.json` to start APIs.
 For More Info: https://www.npmjs.com/package/json-server
 
+## Installing Dependencies
+
+Run `npm install` for dependencies to install.
+
 ## Development server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
