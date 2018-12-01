@@ -1,0 +1,42 @@
+<div class="btn-form-group right">
+  <button class="btn" type="button" (click)="navigateCreatePage()">
+    Add new schema
+  </button>
+</div>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th colspan="5">
+        <input type="text" placeholder="Filter by: Name, Type, Default Value, Min-Max Length, Min-Max Value, Required" class="form-control" [(ngModel)]="filter" (keyup)="filterList()" />
+      </th>
+    </tr>
+    <tr>
+      <th sort-column='name' [direction]=sort (sortAction)='sortAction($event)'>Name</th>
+      <th sort-column='type' [direction]=sort (sortAction)='sortAction($event)'>Type</th>
+      <th sort-column='required' [direction]=sort (sortAction)='sortAction($event)'>Required</th>
+      <th sort-column='defaultValue' [direction]=sort (sortAction)='sortAction($event)'>Default Value</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="schemaList.length">
+    <tr *ngFor="let schema of schemaList | paginate: { id: 'schema', itemsPerPage: itemPerPage, currentPage: currentPage, totalItems: totalItems }">
+    <!-- <tr *ngFor="let schema of schemaList"> -->
+      <td>{{ schema.name || " -- " }}</td>
+      <td>{{ schema.type || " -- " }}</td>
+      <td>{{ schema.required || " -- " }}</td>
+      <td>{{ schema.defaultValue || " -- " }}</td>
+      <td>
+        <i class="fa fa-pencil" aria-hidden="true" title="edit" (click)="editSchema(schema)"></i>
+        <i class="fa fa-trash" aria-hidden="true" title="delete" (click)="deleteSchema(schema)"></i>
+      </td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="!schemaList.length">
+    <tr>
+      <td colspan="5">No Records Found.</td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls *ngIf="schemaList.length" id="schema" (pageChange)="pageChanged($event)" maxSize="6" directionLinks="true" autoHide="true" previousLabel="Prev" nextLabel="Next">
+</pagination-controls>

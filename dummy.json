@@ -1,0 +1,26 @@
+{
+  "column": [
+    {
+      "name": "Name",
+      "type": "String",
+      "required": "false",
+      "defaultValue": "qwerty",
+      "maxLength": "10",
+      "minLength": "2",
+      "maxValue": "",
+      "minValue": "",
+      "id": 1
+    },
+    {
+      "name": "Sequence",
+      "type": "String",
+      "required": "true",
+      "defaultValue": "asdf",
+      "maxLength": "4",
+      "minLength": "2",
+      "maxValue": "",
+      "minValue": "",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-header">
+    {{ viewType | titlecase }} Schema
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <form [formGroup]="schemaForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" [class.form-control-danger]="name.invalid && name.touched" [formControl]="name" placeholder="Name" class="form-control" />
+          <small class="text-danger" *ngIf="!name.valid && name.touched">Required</small>
+        </div>
+        <div class="form-group">
+          <label for="type">Type:</label>
+          <select [class.form-control-danger]="type.invalid && type.touched" [formControl]="type" class="form-control">
+            <option value="String">String</option>
+            <option value="Number">Number</option>
+            <option value="Boolean">Boolean</option>
+          </select>
+          <small class="text-danger" *ngIf="!type.valid && type.touched">Required</small>
+        </div>
+        <div class="form-group">
+          <label for="required">Required:</label>
+          <select [class.form-control-danger]="required.invalid && required.touched" [formControl]="required" class="form-control">
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
+          <small class="text-danger" *ngIf="!required.valid && required.touched">Required</small>
+        </div>
+        <div class="form-group">
+          <label for="defaultValue">Default Value:</label>
+          <input type="text" [class.form-control-danger]="defaultValue.invalid && defaultValue.touched" [formControl]="defaultValue" [placeholder]=defaultValuePlaceholder class="form-control" />
+          <small class="text-danger" *ngIf="!defaultValue.valid && defaultValue.touched">Provide Valid Value</small>
+        </div>
+        <div class="form-group" *ngIf="type.value === 'String'">
+          <label for="name">Min Length:</label>
+          <input type="text" [class.form-control-danger]="minLength.invalid && minLength.touched" [formControl]="minLength" placeholder="Min Length (eg: 2)" class="form-control" (keydown)="validate($event)"/>
+          <small class="text-danger" *ngIf="!minLength.valid && minLength.touched">Invalid</small>
+        </div>
+        <div class="form-group" *ngIf="type.value === 'String'">
+          <label for="maxLength">Max Length:</label>
+          <input type="text" [class.form-control-danger]="maxLength.invalid && maxLength.touched" [formControl]="maxLength" placeholder="Max Length (eg: 8)" class="form-control" (keydown)="validate($event)"/>
+          <small class="text-danger" *ngIf="!maxLength.valid && maxLength.touched">Invalid</small>
+        </div>
+        <div class="form-group" *ngIf="type.value === 'Number'">
+          <label for="name">Min Value:</label>
+          <input type="text" [class.form-control-danger]="minValue.invalid && minValue.touched" [formControl]="minValue" placeholder="Min Value (eg: 10)" class="form-control" (keydown)="validate($event)"/>
+          <small class="text-danger" *ngIf="!minValue.valid && minValue.touched">Invalid</small>
+        </div>
+        <div class="form-group" *ngIf="type.value === 'Number'">
+          <label for="name">Max Value:</label>
+          <input type="text" [class.form-control-danger]="maxValue.invalid && maxValue.touched" [formControl]="maxValue" placeholder="Max Value (eg: 50)" class="form-control" (keydown)="validate($event)"/>
+          <small class="text-danger" *ngIf="!maxValue.valid && maxValue.touched">Invalid</small>
+        </div>
+        <div class="form-group">
+          <button class="btn" type="submit" [disabled]="schemaForm.invalid">
+            {{ viewType | titlecase }}
+          </button>
+          <button class="btn ml-2" type="button" (click)="navigateList()">
+            Cancel
+          </button>
+        </div>
+      </form>
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
+    </blockquote>
+  </div>
+</div>

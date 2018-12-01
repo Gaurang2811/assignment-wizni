@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+// App pre loader CSS
+.pre-loader{
+	opacity: 0;
+  z-index: 500000;
+  display:none;
+}
+
+app-root:empty + .pre-loader {
+  display:block;
+  opacity: 1;
+  z-index: 100;
+}
+
+// App css
+strong {
+	font-weight: 600
+}
+
+.fa {
+	padding: 5px
+}
+
+label {
+	font-size: 1rem;
+}
+
+.form-control-danger {
+	border: 1px solid #ff0000;
+}
+
+.ngx-pagination {
+	padding-left: 15px;
+}
+
+.right {
+	float: right;
+}
+
+.btn-form-group {
+	margin: 10px;
+}
+
